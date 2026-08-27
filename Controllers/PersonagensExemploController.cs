@@ -10,7 +10,7 @@ namespace RpgApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PersonagemExemploController : ControllerBase
+    public class PersonagensExemploController : ControllerBase
     {
          private static List<Personagem> personagens = new List<Personagem>()
         {
@@ -24,7 +24,11 @@ namespace RpgApi.Controllers
             new Personagem() { Id = 7, Nome = "Radagast", PontosVida=100, Forca=25, Defesa=11, Inteligencia=35, Classe=ClasseEnum.Mago }
         };
 
-        
+        [HttpGet("GetAll")]
+        public IActionResult Get()
+        {
+            return Ok(personagens);
+        }
 
     }
 }
