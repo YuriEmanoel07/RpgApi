@@ -32,3 +32,37 @@ D:\2DS\ds\Aula05\RpgApi\obj\Debug\net10.0\RpgApi.pdb
 D:\2DS\ds\Aula05\RpgApi\obj\Debug\net10.0\RpgApi.genruntimeconfig.cache
 D:\2DS\ds\Aula05\RpgApi\obj\Debug\net10.0\ref\RpgApi.dll
 D:\2DS\ds\Aula05\RpgApi\obj\Debug\net10.0\RpgApi.sourcelink.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\appsettings.Development.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\appsettings.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\RpgApi.staticwebassets.endpoints.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\RpgApi.exe
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\RpgApi.deps.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\RpgApi.runtimeconfig.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\RpgApi.dll
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\RpgApi.pdb
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.csproj.AssemblyReference.cache
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.AssemblyInfoInputs.cache
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.AssemblyInfo.cs
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.csproj.CoreCompileInputs.cache
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.MvcApplicationPartsAssemblyInfo.cs
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.MvcApplicationPartsAssemblyInfo.cache
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.sourcelink.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\scopedcss\bundle\RpgApi.styles.css
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\staticwebassets.build.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\staticwebassets.development.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\swae.build.ex.cache
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.csproj.Up2Date
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.dll
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\refint\RpgApi.dll
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.pdb
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\RpgApi.genruntimeconfig.cache
+C:\MEUS PROJETOS\Modulo2\DS\RpgApi\obj\Debug\net10.0\ref\RpgApi.dll
