@@ -24,7 +24,7 @@ namespace RpgApi.Controllers
             new Personagem() { Id = 6, Nome = "Celeborn", PontosVida=100, Forca=21, Defesa=13, Inteligencia=34, Classe=ClasseEnum.Clerigo },
             new Personagem() { Id = 7, Nome = "Radagast", PontosVida=100, Forca=25, Defesa=11, Inteligencia=35, Classe=ClasseEnum.Mago }
         };
-        //Metodo A
+       
         [HttpGet("Ordenar")]
         public IActionResult Ordenar()
         {
@@ -32,10 +32,19 @@ namespace RpgApi.Controllers
             return Ok(personagens);
         }
 
+
+
+// METODO A
         [HttpGet("GetByNome/{nome}")]
         public IActionResult GetByNome(string nome)
         {
           List<Personagem> resultado = personagens.FindAll(x => x.Nome.ToLower().Contains(nome.ToLower()));
+           
+            if (resultado.Count == 0 )
+            {
+              return NotFound("Nenhum personagem encontrado");
+            }
+
             return Ok(resultado);
         }
 
