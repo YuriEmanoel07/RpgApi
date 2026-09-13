@@ -49,7 +49,60 @@ namespace RpgApi.Controllers
         }
 
         //METODO B
+
+        [HttpGet("GetClerigoMago")]
+        public IActionResult GetClerigoMago()
+        {
+            List<Personagem> ListaFiltrada = personagens.FindAll(p => p.Classe != ClasseEnum.Cavaleiro).OrderByDescending(p => p.PontosVida).ToList();
+
+            return Ok(ListaFiltrada);
+        }
         
+        // METODO C
+      [HttpGet("GetEstatisticas")]
+        public IActionResult GetEstatisticas()
+        {
+            int quantidade = personagens.Count;
+            int somaInteligencia = personagens.Sum(p => p.Inteligencia);
+
+            return Ok(new { Quantidade = quantidade, SomaInteligencia = somaInteligencia });
+        }
+        [HttpPost("PostValidacao")]
+        public IActionResult PostValidacao(Personagem novoPersonagem)
+        {
+            if (novoPersonagem.Defesa < 10 || novoPersonagem.Inteligencia > 30)
+            {
+                return BadRequest("Defesa não pode ser menor que 10 e Inteligência não pode ser maior que 30.");
+            }
+
+            personagens.Add(novoPersonagem);
+            return Ok(personagens);
+}
+            [HttpPost("PostValidacaoMago")]
+            public IActionResult PostValidacaoMago(Personagem novoPersonagem)
+            {
+                if (novoPersonagem.Classe == ClasseEnum.Mago && novoPersonagem.Inteligencia < 35)
+                {
+                    return BadRequest("Personagens da classe Mago não podem ter Inteligência menor que 35.");
+                }
+
+                personagens.Add(novoPersonagem);
+                 return Ok(personagens);
+}
+        [HttpGet("GetByClasse/{id}")]
+        public IActionResult GetByClasse(int id)
+        {
+            ClasseEnum classeBuscada = (ClasseEnum)id;
+            List<Personagem> listaFiltrada = personagens.FindAll(p => p.Classe == classeBuscada);
+
+            return Ok(listaFiltrada);
+        }
+        
+
+
+
+
+
 
     }
 }
