@@ -3182,11 +3182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\2DS\\RpgApi\\RpgApi.csproj",
+      "projectUniqueName": "C:\\Users\\etechas\\RpgApi\\RpgApi.csproj",
       "projectName": "RpgApi",
-      "projectPath": "D:\\2DS\\RpgApi\\RpgApi.csproj",
+      "projectPath": "C:\\Users\\etechas\\RpgApi\\RpgApi.csproj",
       "packagesPath": "D:\\NugetPackages",
-      "outputPath": "D:\\2DS\\RpgApi\\obj\\",
+      "outputPath": "C:\\Users\\etechas\\RpgApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
