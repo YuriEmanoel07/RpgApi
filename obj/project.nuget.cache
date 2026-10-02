@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YeXb9ly3HqA=",
+  "dgSpecHash": "SrkczLnhwj0=",
   "success": true,
   "projectFilePath": "C:\\MEUS PROJETOS\\Modulo2\\DS\\RpgApi\\RpgApi.csproj",
   "expectedPackageFiles": [
@@ -55,6 +55,15 @@
     "C:\\Users\\emano\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.11\\system.security.cryptography.protecteddata.9.0.11.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file C:\\MEUS PROJETOS\\Modulo2\\DS\\RpgApi\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\MEUS PROJETOS\\Modulo2\\DS\\RpgApi\\RpgApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\MEUS PROJETOS\\Modulo2\\DS\\RpgApi\\RpgApi.csproj",
+      "targetGraphs": []
+    },
     {
       "code": "NU1903",
       "level": "Warning",

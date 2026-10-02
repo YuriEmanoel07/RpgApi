@@ -20,13 +20,21 @@ build_property.TargetFrameworkVersion = v10.0
 build_property.EntryPointFilePath = 
 build_property.RootNamespace = RpgApi
 build_property.RootNamespace = RpgApi
+<<<<<<< HEAD
 build_property.ProjectDir = C:\MEUS PROJETOS\Modulo2\DS\RpgApi\
+=======
+build_property.ProjectDir = C:\Users\etechas\RpgApi\
+>>>>>>> cfcc822df179c9860b3327fc01296d7de924206d
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = C:\MEUS PROJETOS\Modulo2\DS\RpgApi
+=======
+build_property.MSBuildProjectDirectory = C:\Users\etechas\RpgApi
+>>>>>>> cfcc822df179c9860b3327fc01296d7de924206d
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
