@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Identity.Client;
 using RpgApi.models;
 using RpgApi.models.Enuns;
+using RpgApi.Utils;
 
 namespace RpgApi.Data
 {
@@ -26,6 +28,13 @@ namespace RpgApi.Data
             modelBuilder.Entity<Personagem>().ToTable("TB_PERSONAGENS");
             modelBuilder.Entity<Armas>().ToTable("TB_ARMAS");
             modelBuilder.Entity<Usuario>().ToTable("TB_USUARIOS");
+
+            //Relacionando One to Many (um para muitos)
+            modelBuilder.Entity<Usuario>()
+                .HasMany(e => e.Personagem)
+                .WithOne(e => e.Usuario)
+                .HasForeignKey(e => e.UsuarioId)
+                .IsRequired(false);
 
             modelBuilder.Entity<Personagem>().HasData
                 (
@@ -52,16 +61,31 @@ namespace RpgApi.Data
                     new Armas(){ Id = 5, Nome = "Adaga Obscura", Dano = 18 },
                     new Armas(){ Id = 6, Nome = "Martelo Trovao", Dano = 40 },
                     new Armas(){ Id = 7, Nome = "Lança Real", Dano = 28 }
-                    
-        
-        
-        
+
                 );
+                //Inicio da criação do usuario padrão.
+                Usuario user = new Usuario();
+                Criptografia.CriarPasswordHash("123456", out byte[] hash, out byte[]salt);
+                user.Id = 1;
+                user.Username = "UsuarioAdmin";
+                user.PasswordString = string.Empty;
+                user.PasswordHash = hash;
+                user.PasswordSalt = salt;
+                user.Perfil = "Admin";
+                user.Email = "seuEmail@gmail.com";
 
-       
-               
+                modelBuilder.Entity<Usuario>().HasData(user);
+                //Fim da criação do usuario padrão
 
-        
+                //define que se o Perfil não for informado, o valor padrão será jogador
+                modelBuilder.Entity<Usuario>().Property(u => u.Perfil).HasDefaultValue("Jogador");
+
+        }// Fim do método OnModelCreating
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.ConfigureWarnings(warnings => warnings
+            .Ignore(RelationalEventId.PendingModelChangesWarning));
         }
 
         
