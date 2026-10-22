@@ -94,12 +94,3 @@ RpgApi/
 
 ```
 
-```
-
----
-
-### Passos após colar no GitHub:
-1. Pressione **Commit changes...** no canto superior direito do GitHub.
-2. No VS Code, abra o terminal e rode `git pull origin main` para sincronizar a alteração com o seu computador local.
-
-```
