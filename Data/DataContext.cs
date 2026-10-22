@@ -22,12 +22,16 @@ namespace RpgApi.Data
         public DbSet<Personagem> TB_PERSONAGENS { get; set; }
          public DbSet<Armas> TB_ARMAS { get; set; }
          public DbSet<Usuario> TB_USUARIOS { get; set; }
+         public DbSet<Habilidade> TB_HABILIDADES { get; set;}
+         public DbSet<PersonagemHabilidade> TB_PERSONAGENS_HABILIDADES { get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Personagem>().ToTable("TB_PERSONAGENS");
             modelBuilder.Entity<Armas>().ToTable("TB_ARMAS");
             modelBuilder.Entity<Usuario>().ToTable("TB_USUARIOS");
+            modelBuilder.Entity<Habilidade>().ToTable("TB_HABILIDADES");
+            modelBuilder.Entity<PersonagemHabilidade>().ToTable("TB_PERSONAGENS_HABILIDADES");
 
             //Relacionando One to Many (um para muitos)
             modelBuilder.Entity<Usuario>()
@@ -35,6 +39,13 @@ namespace RpgApi.Data
                 .WithOne(e => e.Usuario)
                 .HasForeignKey(e => e.UsuarioId)
                 .IsRequired(false);
+
+            //Relacionamento One to One(Um para Um)
+            modelBuilder.Entity<Personagem>()
+            .HasOne(e => e.Armas)
+            .WithOne(e => e.Personagem)
+            .HasForeignKey<Armas>(e => e.PersonagemId)
+            .IsRequired();
 
             modelBuilder.Entity<Personagem>().HasData
                 (
@@ -54,15 +65,38 @@ namespace RpgApi.Data
             modelBuilder.Entity<Armas>().HasData
                 (
                     
-                    new Armas(){ Id = 1, Nome = "Espada longa", Dano = 30 },
-                    new Armas(){ Id = 2, Nome = "Machado de Guerra", Dano = 35 },
-                    new Armas(){ Id = 3, Nome = "Arco longo", Dano = 25 },
-                    new Armas(){ Id = 4, Nome = "Cajado Magico", Dano = 20 },
-                    new Armas(){ Id = 5, Nome = "Adaga Obscura", Dano = 18 },
-                    new Armas(){ Id = 6, Nome = "Martelo Trovao", Dano = 40 },
-                    new Armas(){ Id = 7, Nome = "Lança Real", Dano = 28 }
+                    new Armas(){ Id = 1, Nome = "Espada longa", Dano = 30, PersonagemId = 1},
+                    new Armas(){ Id = 2, Nome = "Machado de Guerra", Dano = 35, PersonagemId = 2 },
+                    new Armas(){ Id = 3, Nome = "Arco longo", Dano = 25, PersonagemId = 3},
+                    new Armas(){ Id = 4, Nome = "Cajado Magico", Dano = 20, PersonagemId = 4 },
+                    new Armas(){ Id = 5, Nome = "Adaga Obscura", Dano = 18, PersonagemId = 5},
+                    new Armas(){ Id = 6, Nome = "Martelo Trovao", Dano = 40, PersonagemId = 6 },
+                    new Armas(){ Id = 7, Nome = "Lança Real", Dano = 28, PersonagemId = 7}
 
                 );
+            modelBuilder.Entity<PersonagemHabilidade>()
+            .HasKey(ph => new {ph.PersonagemId, ph.HabilidadeId});
+
+            modelBuilder.Entity<Habilidade>().HasData
+            (
+                new Habilidade(){Id = 1, Nome ="Adormecer", Dano =39 },
+                new Habilidade(){Id = 2, Nome ="Congelar", Dano =41 },
+                new Habilidade(){Id = 3, Nome ="Hipnotizar", Dano =37 }
+            );
+
+            modelBuilder.Entity<PersonagemHabilidade>().HasData
+            (
+                new PersonagemHabilidade() {PersonagemId = 1, HabilidadeId = 1},
+                new PersonagemHabilidade() {PersonagemId = 1, HabilidadeId = 2},
+                new PersonagemHabilidade() {PersonagemId = 2, HabilidadeId = 2},
+                new PersonagemHabilidade() {PersonagemId = 3, HabilidadeId = 2},
+                new PersonagemHabilidade() {PersonagemId = 3, HabilidadeId = 3},
+                new PersonagemHabilidade() {PersonagemId = 4, HabilidadeId = 3},
+                new PersonagemHabilidade() {PersonagemId = 5, HabilidadeId = 1},
+                new PersonagemHabilidade() {PersonagemId = 6, HabilidadeId = 2},
+                new PersonagemHabilidade() {PersonagemId = 7, HabilidadeId = 3}
+            );
+                
                 //Inicio da criação do usuario padrão.
                 Usuario user = new Usuario();
                 Criptografia.CriarPasswordHash("123456", out byte[] hash, out byte[]salt);
