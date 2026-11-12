@@ -20,7 +20,8 @@ builder.Services.AddControllers().AddNewtonsoftJson (options =>
 Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
 
-
+builder.Services.AddControllers().AddNewtonsoftJson(Options => 
+    Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 
 var app = builder.Build();

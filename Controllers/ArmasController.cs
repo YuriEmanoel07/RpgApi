@@ -38,7 +38,7 @@ namespace RpgApi.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] 
         public async Task<IActionResult> GetSingle(int id)
         {
             try
