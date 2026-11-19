@@ -71,6 +71,9 @@ namespace RpgApi.Controllers
                 }
                 else
                 {
+                    usuario.DataAcesso = System.DateTime.Now;
+                    _context.TB_USUARIOS.Update(usuario);
+                    await _context.SaveChangesAsync(); //Confirma a alteração no banco
                     return Ok (usuario);
                 }
             }
@@ -78,6 +81,46 @@ namespace RpgApi.Controllers
             {
                 
                 return BadRequest (ex.Message);
+            }
+        }
+
+        //Método para alteração de Senha    
+        [HttpPut("AlterarSenha")]
+        public async Task<IActionResult> AlterarSenhaUsuario(Usuario credenciais)
+        {
+            try
+            {
+                Usuario? usuario = await _context.TB_USUARIOS //Busca o usuario no banco atraves do login
+                    .FirstOrDefaultAsync( x => x.Username.ToLower().Equals(credenciais.Username.ToLower()));
+
+                    if (usuario == null)// Se não achar nenhum usuario pelo login, retorna mensagem.
+                    throw new System.Exception("Usuario não encontrado.");
+
+                    Criptografia.CriarPasswordHash(credenciais.PasswordString, out byte[] hash, out byte[] salt);
+                    usuario.PasswordHash = hash; //Se o usuario existir, executa a criptografia
+                    usuario.PasswordSalt = salt; //guardando o hash e o salt nas propriedades do usuario
+
+                    _context.TB_USUARIOS.Update(usuario);
+                    int linhasAfetadas = await _context.SaveChangesAsync(); //Confirma a alteração no banco
+                    return Ok(linhasAfetadas); //retorna as linhas afetadas (Geralmente sempre 1 linha msm)
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetUSuarios()
+        {
+            try
+            {
+                List<Usuario> lista = await _context.TB_USUARIOS.ToListAsync();
+                return Ok(lista);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }
