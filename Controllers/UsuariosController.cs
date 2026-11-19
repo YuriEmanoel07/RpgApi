@@ -123,5 +123,103 @@ namespace RpgApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+       [HttpGet("{usuarioId}")]
+                public async Task<IActionResult> GetUsuario(int usuarioId)
+                {
+                try
+                {
+                //List exigirá o using System.Collections.Generic
+                        Usuario usuario = await _context.TB_USUARIOS //Busca o usuário no banco através do Id
+                        .FirstOrDefaultAsync(x => x.Id == usuarioId);
+                        return Ok(usuario);
+                }
+                catch (System.Exception ex)
+                {
+                return BadRequest(ex.Message);
+                }
+                }
+
+
+                [HttpGet("GetByLogin/{login}")]
+                public async Task<IActionResult> GetUsuario(string login)
+                {
+                try
+                {
+                        //List exigirá o using System.Collections.Generic
+                        Usuario usuario = await _context.TB_USUARIOS //Busca o usuário no banco através do login
+                        .FirstOrDefaultAsync(x => x.Username.ToLower() == login.ToLower());
+                        return Ok(usuario);
+                }
+                catch (System.Exception ex)
+                {
+                return BadRequest(ex.Message);
+                }
+                } 
+
+                //Método para alteração da geolocalização
+            [HttpPut("AtualizarLocalizacao")]
+            public async Task<IActionResult> AtualizarLocalizacao(Usuario u)
+            {
+            try
+            {
+            Usuario usuario = await _context.TB_USUARIOS //Busca o usuário no banco através do Id
+            .FirstOrDefaultAsync(x => x.Id == u.Id);
+            usuario.Latitude = u.Latitude;
+            usuario.Longitude = u.Longitude;
+            var attach = _context.Attach(usuario);
+            attach.Property(x => x.Id).IsModified = false;
+            attach.Property(x => x.Latitude).IsModified = true;
+            attach.Property(x => x.Longitude).IsModified = true;
+            int linhasAfetadas = await _context.SaveChangesAsync(); //Confirma a alteração no banco
+            return Ok(linhasAfetadas); //Retorna as linhas afetadas (Geralmente sempre 1 linha msm)
+            }
+            catch (System.Exception ex)
+            {
+            return BadRequest(ex.Message);
+            }
+            }
+
+            [HttpPut("AtualizarEmail")]
+            public async Task<IActionResult> AtualizarEmail(Usuario u)
+            {
+            try
+            {
+            Usuario usuario = await _context.TB_USUARIOS //Busca o usuário no banco através do Id
+            .FirstOrDefaultAsync(x => x.Id == u.Id);
+            usuario.Email = u.Email;
+            var attach = _context.Attach(usuario);
+            attach.Property(x => x.Id).IsModified = false;
+            attach.Property(x => x.Email).IsModified = true;
+            int linhasAfetadas = await _context.SaveChangesAsync(); //Confirma a alteração no banco
+            return Ok(linhasAfetadas); //Retorna as linhas afetadas (Geralmente sempre 1 linha msm)
+            }
+            catch (System.Exception ex)
+            {
+            return BadRequest(ex.Message);
+            }
+            } 
+
+            //Método para alteração da foto
+            [HttpPut("AtualizarFoto")]
+            public async Task<IActionResult> AtualizarFoto(Usuario u)
+            {
+            try
+            {
+            Usuario usuario = await _context.TB_USUARIOS
+            .FirstOrDefaultAsync(x => x.Id == u.Id);
+            usuario.Foto = u.Foto;
+            var attach = _context.Attach(usuario);
+            attach.Property(x => x.Id).IsModified = false;
+            attach.Property(x => x.Foto).IsModified = true;
+            int linhasAfetadas = await _context.SaveChangesAsync();
+            return Ok(linhasAfetadas);
+            }
+            catch (System.Exception ex)
+            {
+            return BadRequest(ex.Message);
+            }
+            } 
     }
 }
